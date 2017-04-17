@@ -11,6 +11,12 @@ df.ix[(df.pos_neg == 'neg') & (df.swn_pos == 'v'), 'word'].to_csv('output/words_
 df.ix[(df.pos_neg == 'pos') & (df.swn_pos == 'n'), 'word'].to_csv('output/words_pos_n.csv', index=False)
 df.ix[(df.pos_neg == 'pos') & (df.swn_pos == 'v'), 'word'].to_csv('output/words_pos_v.csv', index=False)
 
+# all nouns
+df.ix[df.swn_pos == 'n', 'word'].drop_duplicates().to_csv('output/words_all_n.csv', index=False)
+
+# all verbs
+df.ix[df.swn_pos == 'v', 'word'].drop_duplicates().to_csv('output/words_all_n.csv', index=False)
+
 all_words = pd.read_csv('all_word_counts.csv', header=None, names=['word', 'count'])
 nv_words = pd.read_csv('noun_verbs.csv').drop_duplicates()
 
