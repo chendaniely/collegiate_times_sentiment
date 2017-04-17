@@ -17,6 +17,6 @@ nv_words = pd.read_csv('noun_verbs.csv').drop_duplicates()
 word_counts = all_words.merge(nv_words, on='word')
 combined = df.merge(word_counts, on='word')
 
-counts = combined[['word', 'swn_pos', 'pos_neg', 'count']]
+counts = combined[['word', 'swn_pos', 'pos_neg', 'count']].drop_duplicates()
 
 counts.to_csv('output/word_counts_pos_sent.csv')
